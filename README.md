@@ -18,7 +18,7 @@ Gradle
 ```
 dependencies {
     ...
-    compile 'com.jackandphantom.android:circularimageview:1.0.0'
+    compile 'com.jackandphantom.android:circularimageview:1.2.0'
 }
 ```
 XML
@@ -31,7 +31,10 @@ XML
         android:layout_height="270dp"
         android:src="@drawable/circularImage"
         app:border_width="3dp"
-        app:border_color="#463c3c"
+        app:border_color="#ed2e2e"
+        app:add_shadow="true"
+        app:shadow_color="#a10909"
+        app:shadow_radius="20"
         android:id="@+id/circleImage" />
         
 <!-- <a> Rounded corner imageview xml </a> -->
@@ -48,9 +51,15 @@ You may use the following properties in your XML to change your CircularImageVie
 
 #####Properties:
 
+To add shadow in your circular imageview you have to add property add_shadow= "true"
+
  /*  circular imageview xml */
 *  app.border_width  (Dimension)  ->  default 0dp
 *  app.border_color  (Color)      ->  default White
+*  app.add_shadow    (boolean)    ->  default false
+*  app.shadow_color  (Color)      ->  default Black
+*  app.shadow_radius (float)      ->  default 10
+*  app.shadow_radius (float)      ->  default 10
 
 /* Rounded corner imageview xml */
 * app.rounded_radius  (float)     ->  default 20
@@ -62,17 +71,36 @@ JAVA
  CircleImage circleImage = (CircleImage) findViewById(R.id.circleImage);
         circleImage.setBorderColor(Color.BLACK);
         circleImage.setBorderWidth(5);
+        circleImage.setAddShadow(true);
+        circleImage.setShadowRadius(20);
+        circleImage.setShadowColor(Color.parseColor("#a10909"));
      
   RoundedImage roundedImage = (RoundedImage) findViewById(R.id.roundedImage);
         roundedImage.setRoundedRadius(50);
 ```
-LIMITATION
------
-You may faced class not found Exception so if you get any error in your xml while implementing this library 
-so plz rebuild your project, doing this you will see error is gone !!!
-sorry if you get these type of error in your application i am trying to fix it..
+New Functionality 
+---------
+* Now you can load high resolution images without getting outOfmemory exception, all you need to do is call mehtod              * **loadHighResolutionImage** and pass the path of image as arguments
+
+```java
+ CircleImage circleImage = (CircleImage) findViewById(R.id.circleImage);
+             circleImage.loadHighResolutionImage(String filePath);
+ ```
+ 
+ This method can be load image upto 2MB, 5MB, 10MB, i did'nt know the limitation that how much it can load.
 
 This is my first library use it :) !!
+
+Changelog
+---------
+* **1.2.0**
+    * Now you can load high resolution images without getting outOfmemory exception  (minsdkVersion = 13)
+    
+* **1.1.0**
+    * Add shadow effect (minsdkVersion = 19)
+
+* **1.0.0**
+    * initial release (minsdkVersion = 19)
 
 SAMPLE APP LINK
 -----
