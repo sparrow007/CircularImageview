@@ -1,4 +1,4 @@
-![backcover](https://user-images.githubusercontent.com/22986571/27983736-23f27b9a-63e1-11e7-9dcb-da1f50bccef9.png)
+![circularimageview](https://user-images.githubusercontent.com/22986571/30037960-998918f8-91dd-11e7-904e-dd9252349788.png)
 
 
 # CircularImageview
